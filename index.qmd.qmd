@@ -1,0 +1,42 @@
+---
+title: "primera presentación"
+author: "sonia"
+format: revealjs
+editor: visual
+execute: true
+---
+
+## Quarto
+
+------------------------------------------------------------------------
+
+##cargar datos
+
+```{r}
+library(tidyverse)
+load("datos/accidentes2020_data.rda")
+accidentes_tb <-
+  accidentes2020_data |> 
+  as_tibble()
+
+accidentes_tb
+```
+
+------------------------------------------------------------------------
+
+```{r}
+resumen <- accidentes_tb |> count(sexo)
+resumen
+```
+
+------------------------------------------------------------------------
+
+```{r}
+
+
+
+ggplot(resumen) +
+  geom_col(aes(x=sexo, y= n, fill = sexo), alpha = 0.6) +
+  ggthemes::scale_color_colorblind()+
+  theme_minimal()
+```
