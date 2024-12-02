@@ -1,16 +1,16 @@
 ---
 title: "primera presentación"
 author: "sonia"
-format: revealjs
+format: 
+  revealjs:
+    embed-resources: true
 editor: visual
-execute: true
+execute: 
 ---
 
-## Quarto
+---
 
-------------------------------------------------------------------------
-
-##cargar datos
+## cargar datos
 
 ```{r}
 library(tidyverse)
@@ -22,14 +22,17 @@ accidentes_tb <-
 accidentes_tb
 ```
 
-------------------------------------------------------------------------
+---
+## Resumen
 
 ```{r}
-resumen <- accidentes_tb |> count(sexo)
+resumen <- accidentes_tb |> count(sexo) 
 resumen
 ```
 
-------------------------------------------------------------------------
+---
+
+## Grafica
 
 ```{r}
 
@@ -37,6 +40,7 @@ resumen
 
 ggplot(resumen) +
   geom_col(aes(x=sexo, y= n, fill = sexo), alpha = 0.6) +
-  ggthemes::scale_color_colorblind()+
+  ggthemes::scale_fill_colorblind()+
+  labs(title = "Nuevo grafico")
   theme_minimal()
 ```
